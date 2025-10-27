@@ -1,0 +1,1 @@
+"I'm on the last project of foundations course and I'm very much excited to discover articles and new knowledge for this one. I believe I'll be able to finish this one but it will be nerve wracking and of course, with a lot of messy code."
