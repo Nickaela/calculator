@@ -1,0 +1,20 @@
+#display {
+    
+    border: 1px solid black;
+    width: 150px;
+    height: 20px;
+}
+
+#calculator {
+    border: 1px solid black;
+    width: 150px;
+}
+
+.first, .second, .third, .fourth, .fifth {
+    border: .5px solid black;
+    display: flex;
+}
+
+button {
+    flex: auto;
+}
