@@ -42,7 +42,7 @@ function displayTheNums(){
             if (!isNaN(butt.textContent)) {
             display.textContent = butt.textContent;
             } else {
-                display.textContent = "";
+                display.textContent = display.textContent;
             }
         });
     });
