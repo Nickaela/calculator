@@ -31,9 +31,23 @@ function operate(sign, one, two){
     }
  };
 
- 
 
-console.log(operate(operator, 1, 2))
+const display = document.querySelector("p");
+const buttons = document.querySelectorAll("button")
 
+function displayTheNums(){
+    buttons.forEach((butt) => {
+        butt.addEventListener("click", () => {
+
+            if (!isNaN(butt.textContent)) {
+            display.textContent = butt.textContent;
+            } else {
+                display.textContent = "";
+            }
+        });
+    });
+};
+
+displayTheNums();
 
 
