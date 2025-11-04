@@ -21,7 +21,7 @@ let secondNumber;
 
 function operate(){
     if (operator === "+"){
-       return addNumbers(+firstNumber, +secondNumber);
+       return display.textContent = (addNumbers(+firstNumber, +secondNumber));
     } else if (operator === "-"){
         return subtractNumbers(+firstNumber, +secondNumber);
     } else if (operator === "*"){
