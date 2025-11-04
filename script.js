@@ -14,40 +14,69 @@ function divideNumbers(a, b) {
     return a / b;
 }
 
-const firstNumber = 1;
-const operator = "/";
-const secondNumber = 1;
+let firstNumber;
+let operator = "/";
+let secondNumber;
 
 
-function operate(sign, one, two){
-    if (sign === "+"){
-        return addNumbers(one, two);
-    } else if (sign === "-"){
-        return subtractNumbers(one, two);
-    } else if (sign === "*"){
-        return multiplyNumbers(one, two);
+function operate(){
+    if (operator === "+"){
+       return addNumbers(+firstNumber, +secondNumber);
+    } else if (operator === "-"){
+        return subtractNumbers(+firstNumber, +secondNumber);
+    } else if (operator === "*"){
+        return multiplyNumbers(+firstNumber, +secondNumber);
     } else {
-        return divideNumbers(one, two);
+        return divideNumbers(+firstNumber, +secondNumber);
     }
  };
 
-
 const display = document.querySelector("p");
-const buttons = document.querySelectorAll("button")
 
-function displayTheNums(){
-    buttons.forEach((butt) => {
-        butt.addEventListener("click", () => {
+const button1 = document.querySelector(".num1")
+const button2 = document.querySelector(".num2")
+const addd = document.querySelector(".numAdd")
+const result = document.querySelector(".numEquals");
 
-            if (!isNaN(butt.textContent)) {
-            display.textContent = butt.textContent;
-            } else {
-                display.textContent = display.textContent;
-            }
-        });
-    });
-};
+function one() {
+button1.addEventListener("click", () => {
+    display.textContent = button1.innerText;
+    const first = display.textContent;
+    firstNumber = first;
+    console.log(firstNumber);
+})
+}
 
-displayTheNums();
+one();
 
+function add() {
+    addd.addEventListener("click", () => {
+        display.textContent = firstNumber;
+        operator = addd.innerText;
+        console.log(operator)
+        second();
+    })
+}
 
+add();
+
+function second() {
+    button2.addEventListener("click", () => {
+    display.textContent = button2.innerText;
+    const second = display.textContent;
+    secondNumber = second;
+    console.log(secondNumber);
+})
+}
+
+function resultSum() {
+    result.addEventListener("click", () => {
+    display.textContent = button2.innerText;
+    console.log(firstNumber)
+    console.log(secondNumber)
+    console.log(operator)
+    console.log(operate());
+})
+}
+
+resultSum();
