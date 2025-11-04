@@ -14,68 +14,61 @@ function divideNumbers(a, b) {
     return a / b;
 }
 
-let firstNumber;
-let operator = "/";
-let secondNumber;
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
 
 
 function operate(){
     if (operator === "+"){
-       return display.textContent = (addNumbers(+firstNumber, +secondNumber));
+       display.textContent = addNumbers(+firstNumber, +secondNumber);
     } else if (operator === "-"){
-        return subtractNumbers(+firstNumber, +secondNumber);
-    } else if (operator === "*"){
-        return multiplyNumbers(+firstNumber, +secondNumber);
+        display.textContent = subtractNumbers(+firstNumber, +secondNumber);
+    } else if (operator === "X"){
+        display.textContent = multiplyNumbers(+firstNumber, +secondNumber);
     } else {
-        return divideNumbers(+firstNumber, +secondNumber);
+        display.textContent = divideNumbers(+firstNumber, +secondNumber);
     }
  };
 
 
-
-const display = document.querySelector("p");
-const buttons = Array.from(document.querySelectorAll(".number"));
-const operators = Array.from(document.querySelectorAll(".op"));
-const another = Array.from(document.querySelectorAll(".number"));
-
-
+const display = document.querySelector(".inputDisplay");
+const digits = document.querySelectorAll(".number");
+const ope = document.querySelectorAll(".ope");
+const result = document.querySelector(".equals");
+const clear = document.querySelector(".clear");
 
 
 
-function first(){
-for (const button of buttons){
-    button.addEventListener("click", () => {
-        display.textContent = button.innerText;
-        const first = display.textContent;
-        firstNumber = first;
-        console.log(firstNumber)
-    })}
-}
-first()
+clear.addEventListener("click", () => {
+    display.textContent = "";
+})
 
+digits.forEach((digit) => {
+    digit.addEventListener("click", () => {
+        
 
-function second(){
-for (const anot of another){
-    anot.addEventListener("click", () => {
-        display.textContent = anot.innerText;
-        const second = display.textContent;
-        secondNumber = second;
-        console.log(secondNumber)
-    })}
-}
+        if (operator === "") {
+            display.textContent += digit.innerText;
 
+            firstNumber = display.textContent;
+            console.log(firstNumber)
+        } else {
+            secondNumber = digit.innerText;
+            display.textContent = secondNumber;
+            console.log(secondNumber)
+        }
+    })
+})
 
-function forTheOperate(){
-    for (const op of operators){
-        op.addEventListener("click", () => {
-            display.textContent = firstNumber;
-            operator = op.innerText;
-            console.log(operator)
-            second();
-        })
-    }
+ope.forEach((op) => {
+    op.addEventListener("click", () => {
+        display.textContent = firstNumber;
+        operator = op.innerText;
+        console.log(operator);
+    })
+})
 
-   
-}
-
-forTheOperate();
+result.addEventListener("click", () => {
+    operate();
+})
