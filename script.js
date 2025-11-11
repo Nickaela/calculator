@@ -53,13 +53,11 @@ clear.addEventListener("click", () => {
 digits.forEach((digit) => {
     digit.addEventListener("click", () => {
         if (isNaN(firstNumber) && isNaN(secondNumber) && operator !== null){
-            
             operate();
         } 
 
         else if (operator === "") {
             display.textContent += digit.innerText;
-
             firstNumber = display.textContent;
             console.log(firstNumber)
         } else {
@@ -100,4 +98,3 @@ result.addEventListener("click", () => {
 
 
 
-// console.log(!isNaN(1))
