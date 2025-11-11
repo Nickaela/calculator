@@ -42,6 +42,9 @@ const clear = document.querySelector(".clear");
 
 clear.addEventListener("click", () => {
     display.textContent = "";
+    operator = "";
+    console.log(display.textContent)
+    console.log(operator)
 })
 
 digits.forEach((digit) => {
@@ -72,3 +75,6 @@ ope.forEach((op) => {
 result.addEventListener("click", () => {
     operate();
 })
+
+
+
