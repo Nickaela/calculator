@@ -39,7 +39,6 @@ const result = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
 
 
-
 clear.addEventListener("click", () => {
     display.textContent = "";
     operator = "";
@@ -49,9 +48,12 @@ clear.addEventListener("click", () => {
 
 digits.forEach((digit) => {
     digit.addEventListener("click", () => {
-        
+        if (isNaN(firstNumber) && isNaN(secondNumber) && operator !== null){
+            
+            operate();
+        } 
 
-        if (operator === "") {
+        else if (operator === "") {
             display.textContent += digit.innerText;
 
             firstNumber = display.textContent;
@@ -66,15 +68,32 @@ digits.forEach((digit) => {
 
 ope.forEach((op) => {
     op.addEventListener("click", () => {
+        if (operator === "/" || operator === "+" || operator === "-"
+            || operator === "X") {
+                operate();
+                console.log(op.innerText)
+                operator = op.innerText;
+                console.log(display.textContent)
+                firstNumber = display.textContent;
+                console.log(firstNumber)
+                console.log(operator)
+
+            } else {
+
         display.textContent = firstNumber;
         operator = op.innerText;
         console.log(operator);
+            }
     })
 })
 
 result.addEventListener("click", () => {
+    console.log(firstNumber)
+            console.log(secondNumber)
+            console.log(operator)
     operate();
 })
 
 
 
+// console.log(!isNaN(1))
